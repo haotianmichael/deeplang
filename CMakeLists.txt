@@ -22,17 +22,17 @@ else ()
 endif()
 
 # generate parser lexer parser from g4
-if (DEEPLANG_ANTLR4_GEN)
-    execute_process(
-        COMMAND antlr4
-                -Werror -Dlanguage=Cpp -listener -visitor
-                -lib src/parsing
-                src/parsing/DLLexer.g4
-                src/parsing/DLParser.g4
-                -o gen
-        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    )
-endif()
+#if (DEEPLANG_ANTLR4_GEN)
+#    execute_process(
+#        COMMAND antlr4
+#                -Werror -Dlanguage=Cpp -listener -visitor
+#                -lib src/parsing
+#                src/parsing/DLLexer.g4
+#                src/parsing/DLParser.g4
+#                -o gen
+#        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+#    )
+#endif()
 
 function (deeplang_executable)
     cmake_parse_arguments(EXE "" "NAME" "SOURCES;INCLUDES;LIBS" ${ARGN})
@@ -71,7 +71,7 @@ function (deeplang_executable)
     set(EXE_LIBS
         antlr4_static
         wabt
-
+		
         ${EXE_LIBS}
     )
 
