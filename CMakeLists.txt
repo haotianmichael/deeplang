@@ -3,7 +3,7 @@ cmake_policy(SET CMP0091 NEW)
 project(Deeplang)
 
 
-option(DEEPLANG_BUILD_TESTS "Build GTest-based tests" ON)
+option(DEEPLANG_BUILD_TESTS "Build GTest-based tests" OFF)
 option(DEEPLANG_ANTLR4_GEN "Use Antlr4 generating parser codes" ON)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -71,7 +71,7 @@ function (deeplang_executable)
     set(EXE_LIBS
         antlr4_static
         wabt
-		
+
         ${EXE_LIBS}
     )
 
